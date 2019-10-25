@@ -25,16 +25,19 @@ public class CameraController : MonoBehaviour
         float PositionX = (Player1.position.x + Player2.position.x) / 2;
         float PositionZ = (Player1.position.z + Player2.position.z) / 2;
 
-        float criticalX = Mathf.Abs (Player1.position.x - Player2.position.x) / 2 - 8.0f;
-        float criticalZ = Mathf.Abs (Player1.position.z - Player2.position.z) / 2 - 6.0f;
+        float criticalX = Mathf.Abs (Player1.position.x - Player2.position.x) / 2 - 10.0f;
+        float criticalZ = Mathf.Abs (Player1.position.z - Player2.position.z) / 2 - 8.0f;
 
-        float PositionY = 24.0f + (criticalX > 0 ? criticalX : 0)
-            + (criticalZ > 0 ? criticalZ : 0);
+        float PositionY = 27.0f + (criticalX > 0 ? criticalX : 0) * 0.8f
+            + (criticalZ > 0 ? criticalZ : 0) * 0.8f;
 
-        float CameraReviseZ = -7.0f - (PositionY - 24.0f) * 0.6f;
+        if (PositionY > 40.0f)
+            PositionY = 40.0f;
+
+        float CameraReviseZ = -8.0f - (PositionY - 27.0f) * 0.8f;
 
         Vector3 CameraPosition = new Vector3(PositionX, PositionY, PositionZ + CameraReviseZ);
 
-        Camera0.position = Vector3.MoveTowards (Camera0.position, CameraPosition, 16.0f * Time.deltaTime) ;
+        Camera0.position = Vector3.MoveTowards (Camera0.position, CameraPosition, 16.8f * Time.deltaTime) ;
     }
 }
