@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5988837791799669533}
   - component: {fileID: 7248015413269401007}
+  - component: {fileID: 1229663708578622281}
+  - component: {fileID: 4155706225962292138}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -25,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594082600888096926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.52, y: 3.29, z: 16.31}
+  m_LocalPosition: {x: 2.52, y: 3.29, z: 16.154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1270261659988477581}
@@ -49,6 +51,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1229663708578622281
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594082600888096926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4155706225962292138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594082600888096926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37123e2a8230e24dac2124406c0f42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2403190634074321339
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +87,6 @@ GameObject:
   - component: {fileID: 1270261659988477581}
   - component: {fileID: 618721237411716463}
   - component: {fileID: 7232211545964254525}
-  - component: {fileID: 8079260905243567797}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -128,19 +154,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8079260905243567797
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2403190634074321339}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6573183864353178050
 GameObject:
   m_ObjectHideFlags: 0

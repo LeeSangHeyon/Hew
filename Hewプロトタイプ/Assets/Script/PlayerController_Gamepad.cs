@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController_Gamepad : MonoBehaviour
 {
     Transform Player1;
-    Transform Player2;
     Transform Player1_bow;
     Transform Player1_point;
     int bow_count;
@@ -14,7 +13,6 @@ public class PlayerController_Gamepad : MonoBehaviour
     void Start()
     {
         Player1 = GameObject.Find("Player1").transform;
-        Player2 = GameObject.Find("Player2").transform;
         Player1_bow = GameObject.Find("Player1/Bow").transform;
         Player1_point = GameObject.Find("Player1/Point").transform;
         bow_count = 0;
@@ -49,17 +47,23 @@ public class PlayerController_Gamepad : MonoBehaviour
             float Angle = Mathf.Atan2(TX, TZ) * Mathf.Rad2Deg;
             Player1.rotation = Quaternion.Slerp(Player1.rotation, Quaternion.Euler(0, Angle, 0), 8 * Time.deltaTime);
             bow_count++;
-            bow_count %= 60;
-            Player1_bow.rotation = Quaternion.Slerp(Player1_bow.rotation, Quaternion.Euler(bow_count < 30 ? -45.0f : 45.0f, Angle, 0), Time.deltaTime);
+            bow_count %= 30;
+            Player1_bow.rotation = Quaternion.Slerp(Player1_bow.rotation, Quaternion.Euler(bow_count < 15 ? -45.0f : 45.0f, Angle, 0),  2 * Time.deltaTime);
         }
 
         //攻撃
-        if(Input.GetButtonDown("FireR"))
+        if (Input.GetButtonDown("FireR"))
         {
+            GameObject.Find("Player1/Line").GetComponent<MeshRenderer>().enabled = true;
+        }
+
+        if (Input.GetButtonUp("FireR"))
+        {
+            GameObject.Find("Player1/Line").GetComponent<MeshRenderer>().enabled = false;
             GameObject Ar = Instantiate(Arrow, Player1_point.position, Player1.rotation) as GameObject;
             Rigidbody ArRb = Ar.GetComponent<Rigidbody>();
             ArRb.AddForce(new Vector3 (Mathf.Sin(Mathf.PI * Player1.localEulerAngles.y / 180.0f), 0, 
-                Mathf.Cos(Mathf.PI * Player1.localEulerAngles.y / 180.0f)) * 200);
+                Mathf.Cos(Mathf.PI * Player1.localEulerAngles.y / 180.0f)) * 400);
 
             Destroy(Ar, 1.5f);
 
