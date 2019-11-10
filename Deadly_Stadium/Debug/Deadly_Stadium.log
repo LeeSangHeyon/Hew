@@ -1,0 +1,11 @@
+﻿  sprite.cpp
+c:\users\why38\source\repos\deadly_stadium\texture.h(19): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'TextureIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\sprite.cpp(154): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\sprite.cpp(155): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\sprite.cpp(156): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\sprite.cpp(157): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\sprite.cpp(158): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\sprite.cpp(159): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\sprite.cpp(160): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\sprite.cpp(161): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+  Deadly_Stadium.vcxproj -> C:\Users\why38\source\repos\Deadly_Stadium\Debug\Deadly_Stadium.exe
