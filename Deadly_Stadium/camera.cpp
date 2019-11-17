@@ -6,7 +6,8 @@ CAMERA::CAMERA()
 {
 	posCameraEye = D3DXVECTOR3(0, 8.0f, -4.0f);
 	posCameraAt = D3DXVECTOR3(0, 0, 0);
-	vecCameraUp = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+	vecCameraUp = D3DXVECTOR3(0.0f, 1.0f, 2.0f);
+	xRevise = 0;
 	zRevise = -4.0f;
 	maxflag = false;
 }
@@ -44,12 +45,13 @@ void CAMERA::Update()
 
 	posCameraEye.y = 8.0f + revise;
 	posCameraAt.y = -revise * 0.8f;
+	xRevise = -revise / 6.0f;
 	zRevise = -4.0f - revise / 2.0f;
 
 	
 
-	posCameraEye.x = cameraPos.x;
-	posCameraAt.x = cameraPos.x;
+	posCameraEye.x = cameraPos.x - xRevise;
+	posCameraAt.x = cameraPos.x - xRevise;
 	posCameraEye.z = cameraPos.z + zRevise;
 	posCameraAt.z = cameraPos.z;
 
@@ -80,4 +82,19 @@ void CAMERA::Set()
 	//プロジェクション行列の設定
 	pDevice->SetTransform(D3DTS_PROJECTION, &mtxProjection);
 
+}
+
+float CAMERA::GetABX()
+{
+	return abx;
+}
+
+float CAMERA::GetABZ()
+{
+	return abz;
+}
+
+D3DXVECTOR3 CAMERA::GetPos()
+{
+	return cameraPos;
 }

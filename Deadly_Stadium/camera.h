@@ -27,6 +27,7 @@ private:
 	D3DXVECTOR3		cameraPos;
 	float abx;
 	float abz;
+	float xRevise;
 	float zRevise;
 	bool maxflag;
 
@@ -40,4 +41,12 @@ public:
 
 	void Set();
 
+	float GetABX();
+
+	float GetABZ();
+
+	D3DXVECTOR3 GetPos();
+
 };
+
+CAMERA GetCamera();

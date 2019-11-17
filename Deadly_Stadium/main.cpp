@@ -23,9 +23,12 @@
 #include <d3dx9.h>
 
 #include "camera.h"
+#include "light.h"
+#include "map.h"
 #include "player.h"
 
 CAMERA camera;
+CLight light;
 
 PLAYER_A player1;
 
@@ -214,6 +217,10 @@ bool Initialize(void)
 
 	Sprite_Initialize();
 
+	light.Init();
+
+	InitMap();
+
 	player1.Init();
 
 	player2.Init();
@@ -233,6 +240,10 @@ void Update(void)
 	player2.Update(pad2);
 	camera.GetPlayerPos(player1.GetPos(), player2.GetPos());
 	camera.Update();
+	player1.BorderCheck(camera.GetABX(), camera.GetABZ());
+	player2.BorderCheck(camera.GetABX(), camera.GetABZ());
+	player1.WallCheck();
+	player2.WallCheck();
     g_Rotation += 0.01f;	//適当に角度の増分を増やす
 }
 
@@ -249,13 +260,17 @@ void Draw(void)
     // 描画バッチ命令の開始
 	pDevice->BeginScene();
 
+	light.Set(true);
+
 	camera.Set();
 
-	Grid_Draw();
+	DrawMap();
 
 	player1.Draw();
 
 	player2.Draw();
+
+	Grid_Draw();
 
 
     // 描画バッチ命令の終了
@@ -275,7 +290,9 @@ void Finalize(void)
     // Direct3Dラッパーモジュールの終了処理
     MyDirect3D_Finalize();
 
+}
 
-
-
+CAMERA GetCamera()
+{
+	return camera;
 }
