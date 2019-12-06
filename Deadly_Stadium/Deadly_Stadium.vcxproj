@@ -78,6 +78,10 @@
     <IncludePath>$(DXSDK_DIR)include;$(IncludePath)</IncludePath>
     <LibraryPath>$(DXSDK_DIR)lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Users\why38\source\repos\deadly\include;$(DXSDK_DIR)include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\why38\source\repos\deadly\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -127,6 +131,10 @@
     <ClCompile Include="arrow.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="collider.cpp" />
+    <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="field.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="helicopter.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="light.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,9 +142,13 @@
     <ClCompile Include="mydirect3d.cpp" />
     <ClCompile Include="Myxinput.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="spawn.cpp" />
     <ClCompile Include="sprite.cpp" />
     <ClCompile Include="texture.cpp" />
-    <ClCompile Include="xfile.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="model.cpp" />
+    <ClCompile Include="zombie.cpp" />
+    <ClCompile Include="zombie_special.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrow.h" />
@@ -144,15 +156,23 @@
     <ClInclude Include="collider.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="debug_printf.h" />
+    <ClInclude Include="enemy.h" />
+    <ClInclude Include="field.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="helicopter.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="light.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="mydirect3d.h" />
     <ClInclude Include="Myxinput.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="spawn.h" />
     <ClInclude Include="sprite.h" />
     <ClInclude Include="texture.h" />
-    <ClInclude Include="xfile.h" />
+    <ClInclude Include="UI.h" />
+    <ClInclude Include="model.h" />
+    <ClInclude Include="zombie.h" />
+    <ClInclude Include="zombie_special.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,23 +17,12 @@
 #include "common.h"
 #include "mydirect3d.h"
 #include "texture.h"
+#include "model.h"
 #include "sprite.h"
 #include "input.h"
 #include "Myxinput.h"
 #include <d3dx9.h>
-
-#include "camera.h"
-#include "light.h"
-#include "map.h"
-#include "player.h"
-
-CAMERA camera;
-CLight light;
-
-PLAYER_A player1;
-
-PLAYER_B player2;
-
+#include "game.h"
 GAMEPAD pad1;
 GAMEPAD pad2;
 
@@ -79,6 +68,12 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     // 使用しない一時変数を明示
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
+
+
+	DWORD dwExecLastTime;
+	DWORD dwFPSLastTime;
+	DWORD dwCurrentTime;
+	DWORD dwFrameCount;
 
     // ウィンドウクラス構造体の設定
     WNDCLASS wc = {};
@@ -215,19 +210,15 @@ bool Initialize(void)
         MessageBox(g_hWnd, "いくつか読み込めなかったテクスチャファイルがあります", "エラー", MB_OK);
     }
 
+	Model_Load();
+
 	Sprite_Initialize();
-
-	light.Init();
-
-	InitMap();
-
-	player1.Init();
-
-	player2.Init();
 
 	pad1.Init();
 
 	pad2.Init();
+
+	Game_Init();
 
     return true;
 }
@@ -236,15 +227,7 @@ bool Initialize(void)
 // ゲームの更新関数
 void Update(void)
 {
-	player1.Update(pad1);
-	player2.Update(pad2);
-	camera.GetPlayerPos(player1.GetPos(), player2.GetPos());
-	camera.Update();
-	player1.BorderCheck(camera.GetABX(), camera.GetABZ());
-	player2.BorderCheck(camera.GetABX(), camera.GetABZ());
-	player1.WallCheck();
-	player2.WallCheck();
-    g_Rotation += 0.01f;	//適当に角度の増分を増やす
+	Game_Update(pad1,pad2);
 }
 
 //#######################################################################
@@ -260,15 +243,7 @@ void Draw(void)
     // 描画バッチ命令の開始
 	pDevice->BeginScene();
 
-	light.Set(true);
-
-	camera.Set();
-
-	DrawMap();
-
-	player1.Draw();
-
-	player2.Draw();
+	Game_Draw();
 
 	Grid_Draw();
 
@@ -290,9 +265,4 @@ void Finalize(void)
     // Direct3Dラッパーモジュールの終了処理
     MyDirect3D_Finalize();
 
-}
-
-CAMERA GetCamera()
-{
-	return camera;
 }

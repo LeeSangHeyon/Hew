@@ -95,12 +95,12 @@ void GAMEPAD::Update()
 		State.Gamepad.sThumbRY = 0;
 	}
 
-	if (State.Gamepad.bLeftTrigger < STICK_THRESHOLD)
+	if (State.Gamepad.bLeftTrigger < TRIGGER_THRESHOLD)
 	{//左トリガー
 		State.Gamepad.bLeftTrigger = 0;
 	}
 
-	if (State.Gamepad.bRightTrigger < STICK_THRESHOLD)
+	if (State.Gamepad.bRightTrigger < TRIGGER_THRESHOLD)
 	{//右トリガー
 		State.Gamepad.bRightTrigger = 0;
 	}
@@ -124,7 +124,7 @@ bool GAMEPAD::GetKeyDown(WORD key)
 	else return false;
 }
 
-bool GAMEPAD::GetKeyPress(WORD key)
+bool GAMEPAD::GetKeyTrigger(WORD key)
 {
 	if ((State.Gamepad.wButtons &key) && !(OldState.Gamepad.wButtons &key))
 	{
@@ -133,7 +133,7 @@ bool GAMEPAD::GetKeyPress(WORD key)
 	return false;
 }
 
-bool GAMEPAD::GetKeyUp(WORD key)
+bool GAMEPAD::GetKeyRelease(WORD key)
 {
 	if (!(State.Gamepad.wButtons &key) && (OldState.Gamepad.wButtons &key))
 	{
@@ -146,6 +146,15 @@ bool GAMEPAD::GetKeyDownAnyKey()
 {
 	if (State.Gamepad.wButtons)		return true;
 	else	return false;
+}
+
+bool GAMEPAD::GetRightRelease()
+{
+	if (!(State.Gamepad.bRightTrigger) && (OldState.Gamepad.bRightTrigger))
+	{
+		return true;
+	}
+	return false;
 }
 
 //フレーム単位で振動をセット

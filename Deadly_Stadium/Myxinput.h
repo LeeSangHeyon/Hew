@@ -6,6 +6,8 @@
 
 #define MAX_CONTROLLERS  4  //XInputが認識できるのは4つまで
 #define STICK_THRESHOLD   65535/8 //しきい値
+#define TRIGGER_THRESHOLD   8 //しきい値
+
 
 //スティックの状態を格納する
 struct Stick
@@ -42,10 +44,12 @@ public:
 
 	//ボタンの情報取得
 	bool GetKeyDown(WORD key);	//キーを押してる間
-	bool GetKeyPress(WORD key);	//キーを押した瞬間
-	bool GetKeyUp(WORD key);	//キーを離した瞬間
+	bool GetKeyTrigger(WORD key);	//キーを押した瞬間
+	bool GetKeyRelease(WORD key);	//キーを離した瞬間
 
 	bool GetKeyDownAnyKey();	//どれか押してるなら
+
+	bool GetRightRelease();
 
 	//左右トリガーの取得(0~255)
 	BYTE GetLeftTrigger() { return State.Gamepad.bLeftTrigger; }

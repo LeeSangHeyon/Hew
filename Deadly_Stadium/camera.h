@@ -48,5 +48,3 @@ public:
 	D3DXVECTOR3 GetPos();
 
 };
-
-CAMERA GetCamera();

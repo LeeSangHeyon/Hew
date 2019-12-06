@@ -6,6 +6,37 @@
 #include <d3dx9.h>
 #include "texture.h" // TextureIndex
 
+/*------------------------------------------------------------------------------
+   構造体宣言
+------------------------------------------------------------------------------*/
+// ２Dポリゴン頂点構造体
+typedef struct Vertex2D_tag
+{
+	D3DXVECTOR4 position; // 頂点座標（座標変換済み頂点）
+	D3DCOLOR color;
+	D3DXVECTOR2 texcoord;
+} Vertex2D;
+#define FVF_VERTEX2D (D3DFVF_XYZRHW|D3DFVF_DIFFUSE|D3DFVF_TEX1) // ２Dポリゴン頂点フォーマット
+
+//3Dポリゴン頂点フォーマット(頂点座標[3D] / 法線 / 反射光 / テクスチャ座標 )
+#define FVF_VERTEX_3D	(D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_DIFFUSE | D3DFVF_TEX1)
+#define FVF_VERTEX_LINE	(D3DFVF_XYZ | D3DFVF_DIFFUSE)
+
+
+//3Dポリゴン頂点フォーマット構造体を定義
+typedef struct
+{
+	D3DXVECTOR3 vtx;	//頂点座標
+	D3DXVECTOR3 nor;	//法線ベクトル
+	D3DCOLOR diffuse;	//反射光
+	D3DXVECTOR2 tex;	//テクスチャ座標
+} VERTEX_3D;
+
+typedef struct
+{
+	D3DXVECTOR3 vtx;	//頂点座標
+	D3DXCOLOR color;
+} VERTEX_LINE;
 
 /*------------------------------------------------------------------------------
    関数のプロトタイプ宣言
@@ -43,6 +74,10 @@ void Sprite_Draw(TextureIndex texture_index, float dx, float dy);
 //      th            ... テクスチャ切り取り高さ
 void Sprite_Draw(TextureIndex texture_index, float dx, float dy, int tx, int ty, int tw, int th);
 
+void SpriteA_Draw(TextureIndex texture_index, float dx, float dy, int tx, int ty, int tw, int th);
+
+void SpriteB_Draw(TextureIndex texture_index, float dx, float dy, int tx, int ty, int tw, int th);
+
 // スプライト描画
 // ※テクスチャ切り取り幅、高さと同じ大きさのスプライトを指定座標に配置してスプライトの指定座標を中心に拡大、回転描画する
 //
@@ -63,5 +98,7 @@ void Sprite_Draw(TextureIndex texture_index, float dx, float dy, int tx, int ty,
 void SpriteCube_Draw(D3DXVECTOR3 scl, D3DXVECTOR3 pos, D3DXVECTOR3 rot, bool revolution);
 
 void Grid_Draw(void);
+
+void Line_Draw(D3DXVECTOR3 p, D3DXVECTOR3 r);
 
 #endif // SPRITE_H_

@@ -10,11 +10,10 @@
 #include "Myxinput.h"
 #include "camera.h"
 #include "arrow.h"
+#include "collider.h"
+#include "enemy.h"
 #include "map.h"
-#include "xfile.h"
-
-
-XFile arrow_model;
+#include "model.h"
 
 ARROW::ARROW()
 {
@@ -23,17 +22,19 @@ ARROW::ARROW()
 	rot = D3DXVECTOR3(0, 0, 0);
 	scl = D3DXVECTOR3(0.1f, 0.05f, 0.8f);
 	bUsed = false;
-
+	bPiercing = false;
 }
 
 void ARROW::Init()
 {
-	arrow_model.init("asset/model/sample.x");
+
 }
 
 
-void ARROW::Create(D3DXVECTOR3 p, D3DXVECTOR3 r)
+void ARROW::Create(bool b ,int a,D3DXVECTOR3 p, D3DXVECTOR3 r)
 {
+	bPiercing = b;
+	ATK = a;
 	pos = p;
 	rot = r;
 	bUsed = true;
@@ -44,8 +45,16 @@ void ARROW::Update()
 	if (bUsed)
 	{
 		oldpos = pos;
-		pos.x += sin(rot.y) * speed / 60.0f;
-		pos.z += cos(rot.y) * speed / 60.0f;
+		if (bPiercing)
+		{
+			pos.x += sin(rot.y) * speed / 30.0f;
+			pos.z += cos(rot.y) * speed / 30.0f;
+		}
+		else
+		{
+			pos.x += sin(rot.y) * speed / 60.0f;
+			pos.z += cos(rot.y) * speed / 60.0f;
+		}
 
 		ARROW::WallCheck();
 		ARROW::OutCheck();
@@ -63,18 +72,22 @@ void ARROW::Destroy()
 
 void ARROW::Draw()
 {
-	arrow_model.set(pos, rot, scl);
-	arrow_model.draw();
+	if (bUsed)
+	{
+		Model_Render(MODEL_SAMPLE, pos, rot);
+	}
 
 }
 
 void ARROW::OutCheck()
 {
-	float distance = hypotf(GetCamera().GetPos().x - pos.x, GetCamera().GetPos().z - pos.z);
-	if (distance > 8.0f)
+	float dx = fabsf(GetCamera().GetPos().x - pos.x);
+	float dz = fabsf(GetCamera().GetPos().z - pos.z);
+	if (dx > 8.0f || dz > 5.6f)
 	{
 		Destroy();
 	}
+
 }
 
 void ARROW::WallCheck()
@@ -84,6 +97,47 @@ void ARROW::WallCheck()
 		pos.x = oldpos.x;
 		pos.z = oldpos.z;
 	}
+}
+
+bool ARROW::HitCheck()
+{
+	ZOMBIE_BASIC* zombie = GetZombieBasic();
+	for (int i = 0; i < ZOMBIE_SIZE; i++)
+	{
+		if (zombie[i].bUsed && CollisionPoint(pos, zombie[i].GetPos(),0.3f))
+		{
+			zombie[i].TakeDamage(ATK);
+			if(!bPiercing)
+				Destroy();
+			return true;
+		}
+	}
+
+	ZOMBIE_HAMMER* zhammer = GetZombieHammer();
+	for (int i = 0; i < SPECIALZOMBIE_SIZE; i++)
+	{
+		if (zhammer[i].bUsed && CollisionPoint(pos, zhammer[i].GetPos(), 0.3f))
+		{
+			zhammer[i].TakeDamage(ATK);
+			if (!bPiercing)
+				Destroy();
+			return true;
+		}
+	}
+
+	ZOMBIE_BASEBALL* zbaseball = GetBaseBallZombie();
+	for (int i = 0; i < SPECIALZOMBIE_SIZE; i++)
+	{
+		if (zbaseball[i].bUsed && CollisionPoint(pos, zbaseball[i].GetPos(), 0.3f))
+		{
+			zbaseball[i].TakeDamage(ATK);
+			if (!bPiercing)
+				Destroy();
+			return true;
+		}
+	}
+
+	return false;
 }
 
 bool ARROW::isUsed()

@@ -13,6 +13,8 @@ private:
 	D3DXVECTOR3 oldpos;
 	D3DXVECTOR3 rot;
 	bool bUsed;
+	bool bPiercing;
+	int ATK;
 
 public:
 
@@ -22,7 +24,7 @@ public:
 
 	void Init();
 
-	void Create(D3DXVECTOR3 pos, D3DXVECTOR3 rot);
+	void Create(bool bPiercing, int atk,D3DXVECTOR3 pos, D3DXVECTOR3 rot);
 
 	void Destroy();
 
@@ -34,6 +36,9 @@ public:
 
 	void WallCheck();
 
+	bool HitCheck();
+
 	bool isUsed();
+
 
 };

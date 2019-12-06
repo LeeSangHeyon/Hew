@@ -1,0 +1,66 @@
+﻿  arrow.cpp
+c:\users\why38\source\repos\deadly_stadium\texture.h(26): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'TextureIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\player.h(19): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'PLAYER_STATUS' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\model.h(21): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'ModelIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\arrow.cpp(50): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\arrow.cpp(51): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\arrow.cpp(55): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\arrow.cpp(56): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\arrow.cpp(95): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  helicopter.cpp
+c:\users\why38\source\repos\deadly_stadium\model.h(21): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'ModelIndex' の左辺を無視します。
+  main.cpp
+c:\users\why38\source\repos\deadly_stadium\texture.h(26): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'TextureIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\model.h(21): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'ModelIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\player.h(19): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'PLAYER_STATUS' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\main.cpp(73): warning C4101: 'dwExecLastTime': ローカル変数は 1 度も使われていません。
+c:\users\why38\source\repos\deadly_stadium\main.cpp(76): warning C4101: 'dwFrameCount': ローカル変数は 1 度も使われていません。
+c:\users\why38\source\repos\deadly_stadium\main.cpp(74): warning C4101: 'dwFPSLastTime': ローカル変数は 1 度も使われていません。
+c:\users\why38\source\repos\deadly_stadium\main.cpp(75): warning C4101: 'dwCurrentTime': ローカル変数は 1 度も使われていません。
+  map.cpp
+c:\users\why38\source\repos\deadly_stadium\texture.h(26): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'TextureIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\model.h(21): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'ModelIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\player.h(19): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'PLAYER_STATUS' の左辺を無視します。
+  player.cpp
+c:\users\why38\source\repos\deadly_stadium\texture.h(26): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'TextureIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\player.h(19): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'PLAYER_STATUS' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\model.h(21): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'ModelIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\player.cpp(52): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\player.cpp(116): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+c:\users\why38\source\repos\deadly_stadium\player.cpp(121): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+c:\users\why38\source\repos\deadly_stadium\player.cpp(126): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+c:\users\why38\source\repos\deadly_stadium\player.cpp(136): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\player.cpp(144): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\player.cpp(155): warning C4244: '引数': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\player.cpp(261): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\player.cpp(269): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  model.cpp
+c:\users\why38\source\repos\deadly_stadium\model.h(21): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'ModelIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\model.cpp(25): warning C4305: '引数': 'double' から 'FLOAT' へ切り詰めます。
+c:\users\why38\source\repos\deadly_stadium\model.cpp(181): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  zombie.cpp
+c:\users\why38\source\repos\deadly_stadium\player.h(19): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'PLAYER_STATUS' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\texture.h(26): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'TextureIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\model.h(21): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'ModelIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\zombie.cpp(48): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\zombie.cpp(70): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\zombie.cpp(124): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  zombie_special.cpp
+c:\users\why38\source\repos\deadly_stadium\player.h(19): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'PLAYER_STATUS' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\texture.h(26): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'TextureIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\model.h(21): warning C4091: 'typedef ': 変数が何も宣言されていないときは、'ModelIndex' の左辺を無視します。
+c:\users\why38\source\repos\deadly_stadium\zombie_special.cpp(32): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\zombie_special.cpp(60): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\zombie_special.cpp(107): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\zombie_special.cpp(122): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\zombie_special.cpp(196): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\zombie_special.cpp(373): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+c:\users\why38\source\repos\deadly_stadium\zombie_special.cpp(430): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+c:\users\why38\source\repos\deadly_stadium\zombie_special.cpp(445): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\why38\source\repos\deadly_stadium\zombie_special.cpp(482): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  コード生成しています。
+  73 of 237 functions (30.8%) were compiled, the rest were copied from previous compilation.
+    11 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  コード生成が終了しました。
+  Deadly_Stadium.vcxproj -> C:\Users\why38\source\repos\Deadly_Stadium\x64\Release\Deadly_Stadium.exe
